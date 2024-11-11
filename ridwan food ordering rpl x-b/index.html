@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Ordering App</title>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <div class="container">
@@ -19,8 +21,8 @@
                 </select>
             </div>
             <div>
-                <label for="Drink">Choose a Drink</label>
-                <select id="DSrink">
+                <label for="drink">Choose a Drink</label>
+                <select id="drink">
                     <option value="0">--Select Drink--</option>
                     <option value="5">Coca Cola - $5</option>
                     <option value="8">Lemon Tea - $8</option>
@@ -35,8 +37,8 @@
 
     <script>
         document.getElementById("OrderButton").onclick = function() {
-            const foodPrice = parseint(document.getElementById ("food").value);
-            const drinkPrice = parseint(document.getElementById ("drink").value);
+            const foodPrice = parseInt(document.getElementById ("food").value);
+            const drinkPrice = parseInt(document.getElementById ("drink").value);
            
             let totalPrice = foodPrice + drinkPrice;
             let discount = 0;
@@ -48,7 +50,8 @@
             
             if (totalPrice > 0) {
                 resultDiv.innerHTML = `
-                total: $${discount.toFixed (2)}<br>
+                total: $${totalPrice}<br>
+                discount: $${discount.toFixed(2)}<br>
                 Final Price : $${totalPrice.toFixed (2)}`;
             } else {
                 resultDiv.innerHTML = "Please select food and drink";
